@@ -1,0 +1,71 @@
+Source: libkf5mailimporter
+Section: libs
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Norbert Preining <norbert@preining.info>,
+           Sandro Knauß <hefee@debian.org>,
+Build-Depends: cmake (>= 3.16~),
+               debhelper-compat (= 13),
+               extra-cmake-modules (>= 5.83.0~),
+               libkf5akonadi-dev (>= 4:21.08.1~),
+               libkf5akonadimime-dev (>= 4:21.08.1~),
+               libkf5archive-dev (>= 5.83.0~),
+               libkf5config-dev (>= 5.83.0~),
+               libkf5coreaddons-dev (>= 5.83.0~),
+               libkf5grantleetheme-dev (>= 5.79.0~),
+               libkf5grantleetheme-plugins (>= 5.79.0~),
+               libkf5i18n-dev (>= 5.83.0~),
+               libkf5kio-dev (>= 5.83.0~),
+               libkf5libkdepim-dev (>= 4:20.04.1~),
+               libkf5mime-dev (>= 21.08.1~),
+               libkf5pimcommon-dev (>= 4:21.08.1~),
+               pkg-kde-tools (>= 0.12),
+               qtbase5-dev (>= 5.15.0~),
+               xauth,
+               xvfb,
+Standards-Version: 4.6.0
+Homepage: https://invent.kde.org/pim/mailimporter
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/mailimporter
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/mailimporter.git
+Rules-Requires-Root: no
+
+Package: libkf5mailimporter-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libkf5akonadi-dev (>= 4:21.08.1~),
+         libkf5akonadimime-dev (>= 4:21.08.1~),
+         libkf5archive-dev (>= 5.83.0~),
+         libkf5mailimporter5 (= ${binary:Version}),
+         libkf5mailimporterakonadi5 (= ${binary:Version}),
+         libkf5mime-dev (>= 21.08.1~),
+         qtbase5-dev (>= 5.15.0~),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: KDE PIM Mail importer library, devel files
+ Contains development files for building software that uses the library for
+ importing mails into KDE applications.
+ .
+ This package is part of the KDE PIM module.
+
+Package: libkf5mailimporter5
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Breaks: libkf5mailimporter-dev (<< 4:19.08.2-1~)
+Replaces: libkf5mailimporter-dev (<< 4:19.08.2-1~)
+Description: KDE PIM Mail importer library
+ This package contains a library for importing mails into KDE applications.
+ .
+ This package is part of the KDE PIM module.
+Provides: ${ABI:VirtualPackage}
+
+Package: libkf5mailimporterakonadi5
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: KDE PIM Mail importer Akonadi library
+ This package contains a library for importing mails into Akonadi applications.
+ .
+ This package is part of the KDE PIM module.
+Provides: ${ABI:VirtualPackage}
